@@ -117,7 +117,7 @@ install.packages('rmarkdown')
 25 + 3 # 25 - 3
 23 # 2/3
 12 > 4 # 12 >= 4; 12 < 4; 12 <= 4 
-!TRUE # (negación); TRUE & FALSE (and); TRUE | FALSE (oro)
+!TRUE # (negación); TRUE & FALSE (and); TRUE | FALSE (or)
 ```
 
 ## Tipos básicos
@@ -144,14 +144,14 @@ Inf # Infinity
 
 __Datos homogéneos__:
 
-* vectores 1D
-* matrices 2D (Formado tabla)
+* vector 1D
+* matrix 2D (Formato tabla)
 * arrays nD
 
 __Datos heterogéneos__:
 
 * list 1D
-* ```data.frames``` 2D (Formado BBDD habitual)
+* ```data.frames``` 2D (Formato BBDD habitual)
 
 ## Vectores
 
@@ -166,7 +166,7 @@ c(TRUE, TRUE, FALSE, TRUE)
 ```{r}
 1:3 
 seq(1, 3)
-seq(from = 10, tono = 0, by = -2)
+seq(from = 10, to = 0, by = -2)
 ```
 
 ## Operaciones con vectores
@@ -175,7 +175,7 @@ seq(from = 10, tono = 0, by = -2)
 c(1,2,3)
 c(1,2,3) - c(0, 2, 1)
 c(1,2,3) + c(0, 2, 1)
-c(1,2,3) %% c(0, 2, 1)
+c(1,2,3) %*% c(0, 2, 1)
 ```
 
 ## Evaluación de vectores
@@ -263,6 +263,7 @@ table(un_df$z)
 
 * `?rbind`/`cbind`: Combinar objectos por filas o columnas
 * `merge`: Combinar `data.frame` por columnas iguales
+* Mirar `Ejemplo.R`
 
 ## Agrupar y resumir datos
 
@@ -275,11 +276,11 @@ Aplica una función sobre uno lista datos.
 tapply(un_df$y, list(un_df$z), FUN = 'sum')
 ```
 
-* Existen `packages` más rápidos como `data.table` y `dplyr`.
+* Existen `packages` más rápidos como [`data.table`](https://cran.r-project.org/web/packages/data.table/index.html) (Más ràpido) y [`dplyr`](https://cran.r-project.org/web/packages/dplyr/index.html)(Más fácil).
 
 ---
 
-Del capitulo [Vocabulary](http://adv-r.had.co.nz/Vocabulary.html) de Advanced R.
+Basado en Advanced R. El capitulo [Vocabulary](http://adv-r.had.co.nz/Vocabulary.html) contiene un amplio conjunto de funciones útiles. A continuación una muestra:
 
 ```{r, eval = FALSE}
 # Ordering and tabulating 
@@ -299,8 +300,6 @@ anova, coef, confint, vcov
   hyper, lnorm, logis, multinom, nbinom, norm, pois, signrank, t, 
   unif, weibull, wilcox, birthday, tukey)
 ```
-
----
 
 # Paso 4: Gráficos
 
