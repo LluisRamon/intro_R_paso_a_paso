@@ -404,3 +404,15 @@ png("Primer_plot.png", width = 640, height = 480)
 plot(rnorm(10))
 dev.off()
 ```
+
+## Gracias
+
+¿Dudas? ¿Sugerencias? ¿Insultos?
+
+__Lluís Ramon__
+
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<p><i class="fa fa-twitter fa-lg fa-fw"></i> <a href="https://twitter.com/LluisR_Tgn" target="_blank">@LluisR_Tgn</a></p>
+<p><i class="fa fa-github fa-lg fa-fw"></i> <a href="https://github.com/LluisRamon" target="_blank">@LluisRamon</a></p>
+<p><i class="fa fa-linkedin fa-lg fa-fw"></i> <a href="https://www.linkedin.com/in/lluisramon" target="_blank">lluisramon</a></p>
