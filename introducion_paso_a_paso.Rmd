@@ -78,3 +78,329 @@ El __RStudio__ desde la web en [Product -> RStudio](https://www.rstudio.com/prod
 
 __Nota:__ El R se puede usar solo. RStudio necesita el R.
 
+# Paso 0: Familiarizarse con RStudio
+
+## Las principales ventanas
+
+<img src="RStudio.png" style = "width:704px;height:528px;">
+
+## Como buscar ayuda?
+
+- Ventana `Help`
+- Apretar F1 sobre una función, `?` o con la función `help`.
+
+```{r, eval=FALSE}
+?sum
+help(mean)
+```
+
+- Para buscar cualquier cosa relacionada `??`
+
+```{r, eval=FALSE}
+??read
+```
+
+## Como instalar un package?
+
+* Ventana `Packages` --> _Install_
+* Directamente en la consola
+
+```{r, eval=FALSE}
+install.packages('rmarkdown')
+```
+
+# Paso 1: Conceptos iniciales
+
+## Aritmética básica
+
+```{r}
+25 + 3 # 25 - 3
+23 # 2/3
+12 > 4 # 12 >= 4; 12 < 4; 12 <= 4 
+!TRUE # (negación); TRUE & FALSE (and); TRUE | FALSE (oro)
+```
+
+## Tipos básicos
+
+```{r}
+class(2)
+class(2L)
+class("2")
+class(TRUE)
+```
+
+## Tipos especiales
+
+```{r}
+NULL # NULL object
+NA # missing value indicator (not available)
+NaN # 0/0 (not a number)
+Inf # Infinity
+```
+
+# Paso 2: Vectores, matrices y data.frames
+
+## Estructuras de datos
+
+__Datos homogéneos__:
+
+* vectores 1D
+* matrices 2D (Formado tabla)
+* arrays nD
+
+__Datos heterogéneos__:
+
+* list 1D
+* ```data.frames``` 2D (Formado BBDD habitual)
+
+## Vectores
+
+```{r}
+c(1,2,3) 
+c("a", "b", "c", "d")
+c(TRUE, TRUE, FALSE, TRUE)
+```
+
+## Secuencias
+
+```{r}
+1:3 
+seq(1, 3)
+seq(from = 10, tono = 0, by = -2)
+```
+
+## Operaciones con vectores
+
+```{r}
+c(1,2,3)
+c(1,2,3) - c(0, 2, 1)
+c(1,2,3) + c(0, 2, 1)
+c(1,2,3) %% c(0, 2, 1)
+```
+
+## Evaluación de vectores
+
+```{r}
+un_vector <- c("a", "b", "c", "d") # <-(=) asigna a una variable 
+un_vector[1]
+un_vector[c(2,3)]
+un_vector[-1]
+un_vector[c(TRUE, TRUE, FALSE, TRUE)]
+```
+
+## Factores
+
+* Tipo especial por una variable categórica
+* Útil para muchas funciones, por ej. regresión logística
+
+```{r}
+numFac <- factor(c(13,22,38, 13))
+numFac
+as.numeric(numFac)
+as.numeric(as.character(numFac)) # convertir a numeric
+```
+
+## data.frame
+
+```{r}
+un_df <- data.frame(x = 1:25, y = runif(25), ynorm = rnorm(25),
+                    z = sample(c("a", "b", "c", "d"), 25, replace = TRUE),
+                    t = "RUGBCN")
+head(un_df) # tail(un_df)
+```
+
+## Explorando un data.frame
+
+```{r}
+dim(un_df) # nrow(un_df) ncol(un_df)
+names(un_df) # colnames(un_df) rownames(un_df)
+summary(un_df)
+```
+
+## Acceder a elementos de un data.frame
+
+```{r}
+un_df[1, 2]
+un_df[1, 1:3]
+un_df[1, ]
+```
+
+---
+
+```{r}
+un_df$x[2]
+un_df[1, c("x", "y")]
+cond <- un_df$x > 20
+un_df[cond, ]
+```
+
+# Paso 3: Funciones básicas
+
+---
+
+```{r, eval = FALSE}
+max, min, prod, sum
+cummax, cummin, cumprod, cumsum, diff
+range
+mean, median, cor, sd, var
+```
+
+```{r}
+max(un_df$ynorm)
+mean(un_df$ynorm)
+sd(un_df$ynorm)
+```
+
+---
+
+```{r}
+head(un_df) # tail
+summary(un_df)
+table(un_df$z)
+```
+
+## Fusionar data.frames
+
+* `?rbind`/`cbind`: Combinar objectos por filas o columnas
+* `merge`: Combinar `data.frame` por columnas iguales
+
+## Agrupar y resumir datos
+
+Familia funciones `?tapply`, `?apply`, `?lapply`, `?aggregate`, etc.
+
+Aplica una función sobre uno lista datos.
+
+
+```{r}
+tapply(un_df$y, list(un_df$z), FUN = 'sum')
+```
+
+* Existen `packages` más rápidos como `data.table` y `dplyr`.
+
+---
+
+Del capitulo [Vocabulary](http://adv-r.had.co.nz/Vocabulary.html) de Advanced R.
+
+```{r, eval = FALSE}
+# Ordering and tabulating 
+duplicated, unique
+merge
+order, rank, quantile
+sort
+table, ftable
+
+# Linear models 
+fitted, predict, resid, rstandard
+lm, glm
+anova, coef, confint, vcov
+
+# Random variables 
+(q, p, d, r) * (beta, binom, cauchy, chisq, exp, f, gamma, geom, 
+  hyper, lnorm, logis, multinom, nbinom, norm, pois, signrank, t, 
+  unif, weibull, wilcox, birthday, tukey)
+```
+
+---
+
+# Paso 4: Gráficos
+
+---
+
+* Función base `?plot`
+
+```{r}
+plot(un_df$x, un_df$y, main = "Mi primer plot")
+```
+
+---
+
+* Opciones del `plot` en `?par`
+* [Parámetros para gráficos](http://www.statmethods.net/advgraphs/parameters.html)
+
+```{r}
+plot(un_df$x, un_df$y, type = "l", col = "red", lwd = 3, lty = 2)
+```
+
+---
+
+* Añadir anotaciones y títulos con `?title` `(ann = FALSE)`
+
+```{r}
+plot(un_df$x, un_df$y, type = "l", col = "red", lwd = 3, lty = 2,  ann = FALSE)
+title(main ="Mi tercer plot", xlab = "Eje de la x", ylab = "Eje de la y")
+```
+
+---
+
+* Añadir una leyenda con `?legend`
+
+```{r}
+plot(un_df$x, un_df$y, type = "l", col = "red", lwd = 3, lty = 2,  ann = FALSE)
+title(main ="Mi tercer plot", xlab = "Eje de la x", ylab = "Eje de la y")
+legend(1, 0.2, "points", lwd = 3, lty = 2, col = "red")
+```
+
+---
+
+```{r}
+hist(un_df$y)
+```
+
+---
+
+```{r}
+densidad <- density(un_df$ynorm)
+plot(densidad)
+```
+
+---
+
+```{r}
+boxplot(un_df$ynorm)
+```
+
+## Gráficos avanzados con ggplot2
+
+* Basado en el Grammar of graphics (Leland Wilkinson)
+* Implementado en R (Hadley Whickham)
+* [Ejemplos de Google Images](http://google.com/images?q=ggplot2)
+* No es fácil pero muy útil
+
+# Paso 5: Importar y exportar datos
+
+## Importar datos
+
+* Desde ventana `Environment` --> _Import Dataset_
+
+* Función `?read.table` y familiares
+
+```{r, eval = FALSE}
+read.table("mtcars.txt", header = TRUE)
+read.csv2("mtcars.csv", header = TRUE)
+```
+
+* Package `foreign` y `heaven` permiten importar diferentes formatos como sas, spss, dbf, stata, etc
+    
+* Package `XLConnect` permite importar Excel.
+
+## Exportar datos
+
+* Función `?write.table` y familiares
+
+```{r, eval = FALSE}
+write.table(mtcars, file = "mtcars.csv")
+write.csv2(mtcars, file = "mtcars.csv")
+```
+
+* Package `XLConnect` permite exportar a Excel.
+
+## Exportar gráficos 
+
+* Desde ventana `Plots` --> _Export_
+* Función `?png` y familiares 
+
+```{r, eval = FALSE}
+png("Primer_plot.png", width = 640, height = 480)
+plot(rnorm(10))
+dev.off()
+```
