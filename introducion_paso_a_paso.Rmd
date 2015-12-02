@@ -70,4 +70,11 @@ Preguntar claramente y con un [ejemplo reproducible](http://stackoverflow.com/qu
 - Informes automáticos de forma fácil
 - Integración con C ++
 
+## Instalación de R y RStudio
+
+El __R__ desde el [CRAN](https://cran.r-project.org/).
+
+El __RStudio__ desde la web en [Product -> RStudio](https://www.rstudio.com/products/rstudio/download/)
+
+__Nota:__ El R se puede usar solo. RStudio necesita el R.
 
