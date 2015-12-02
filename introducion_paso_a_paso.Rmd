@@ -1,0 +1,73 @@
+---
+title: "Introducción a R paso a paso"
+subtitle: "Paso a paso"
+author: Lluís Ramon
+date: "24 de noviembre de 2015"
+output: 
+  ioslides_presentation: 
+    logo: Rlogo.png
+    widescreen: yes
+---
+
+# Qué es R?
+
+## Origen
+
+* El `R` es una implementación del lenguaje de programación específico de estadística __S__
+* Ideado por __Ross Ihaka__ y __Robert Gentleman__ en la Universidad de Auckland, New Zealand 
+* Empiezan en el año 1993. Considerado estable a partir del 2000.
+
+## Ventajas
+
+* _'Free'_
+* Multi-plataforma
+* Pensado para análisis de datos
+* Programable
+* _'Reproducible Research'_
+* Activa comunidad de usuarios
+
+## Qué es el CRAN?
+
+* [The Comprehensive R Archive Network](http://cran.r-project.org/)
+* Repositorio oficial del R, librerías y manuales
+* 7515 [librerías](http://cran.r-project.org/web/packages/) adicionales
+* [Task View](http://cran.r-project.org/web/views/)
+* [Manuales](http://cran.r-project.org/manuals.html)
+* [The R Journal](https://journal.r-project.org/)
+
+
+## Cómo buscar ayuda en Internet?
+
+- [StackOverflow](http://stackoverflow.com/questions/tagged/r) Más de 100000 preguntas.
+- [R-help](https://stat.ethz.ch/pipermail/r-help/) Preguntas y respuestas oficial
+- [R-help.es](https://stat.ethz.ch/mailman/listinfo/r-help-es),  Preguntas y respuestas en castellano
+- [Quick R](http://www.statmethods.net/) Web con instrucciones prácticas
+- [R Cookbook](http://www.cookbook-r.com/) Web con _recetas_ de R prácticas
+- [RDocumentation](http://www.rdocumentation.org/) Ayuda de R on-line de todos los pacakges
+
+<br>
+
+Preguntar claramente y con un [ejemplo reproducible](http://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example).
+
+# RStudio
+
+![alt text](https://www.rstudio.com/wp-content/uploads/2014/06/RStudio-Ball.png)
+
+## Qué es RStudio?
+
+* [IDE](http://www.rstudio.com/products/rstudio/) _(entorno integrado de desarrollo)_
+* Empresa:
+    - Ofrece formación y opciones de pro de sus desarrollos
+    - J.J. Allaire, Hadley Wickham, Yihui Xie, etc.
+    - packages importantes: `ggplot2, rmarkdown, knitr, plyr/dplyr,  devtools, reshape2/tidyR` 
+    - [Shiny](http://shiny.rstudio.com/gallery/)
+    
+## Entorno de programación
+
+- Proyectos
+- Git
+- Simplifica construir paquetes
+- Informes automáticos de forma fácil
+- Integración con C ++
+
+
