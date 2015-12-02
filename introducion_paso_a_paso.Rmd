@@ -7,6 +7,7 @@ output:
   ioslides_presentation: 
     logo: Rlogo.png
     widescreen: yes
+    css: adjust_logo.css
 ---
 
 # Qué es R?

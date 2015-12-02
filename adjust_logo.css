@@ -1,0 +1,8 @@
+.gdbar img {
+  width: 100px !important;
+  height: 85px !important;
+}
+
+/* Adjust logo size as in issue 558 
+   https://github.com/rstudio/rmarkdown/issues/558 
+*/
